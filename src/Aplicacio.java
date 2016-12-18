@@ -20,10 +20,18 @@ public class Aplicacio {
     public static void main(String args[]) {
         System.out.println("Indica la capacitat que tenen les prestatgeries que tens");
         Prestatgeria.capacitatTotal = 30; //Keyboard.readInt();
+        System.out.println(Prestatgeria.capacitatTotal);
         System.out.println("Quantes tematiques diferents vols ubicar? ");
         int quants = 8; //Keyboard.readInt();
+        System.out.println(quants);
         //Completar main
         Aplicacio m = new Aplicacio(quants);
+
+        System.out.println("Dades entrades:\n**********");
+        for (Tematica c:m.candidats ) {
+            System.out.println(c);
+        }
+
         m.solucio();
 
         System.out.println("\nNecessitem " + m.quantes + " prestatgeries");

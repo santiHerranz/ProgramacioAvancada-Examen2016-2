@@ -23,6 +23,6 @@ public class Tematica implements Comparable {
     }
 
     public String toString() {
-        return "Nom de la tematica " + nom + " amb: " + numLlibres;
+        return "Nom de la tematica " + nom + " amb: " + numLlibres +" llibres";
     }
 }
