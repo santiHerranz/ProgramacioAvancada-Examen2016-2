@@ -1,3 +1,5 @@
+package Llibreria;
+
 import java.util.Arrays;
 
 public class Aplicacio {
@@ -19,10 +21,10 @@ public class Aplicacio {
 
     public static void main(String args[]) {
         System.out.println("Indica la capacitat que tenen les prestatgeries que tens");
-        Prestatgeria.capacitatTotal = 30; //Keyboard.readInt();
+        Prestatgeria.capacitatTotal = 30; //Llibreria.Keyboard.readInt();
         System.out.println(Prestatgeria.capacitatTotal);
         System.out.println("Quantes tematiques diferents vols ubicar? ");
-        int quants = 8; //Keyboard.readInt();
+        int quants = 8; //Llibreria.Keyboard.readInt();
         System.out.println(quants);
         //Completar main
         Aplicacio m = new Aplicacio(quants);
@@ -102,7 +104,7 @@ public class Aplicacio {
     public String toString() {
         String re = "";
         for (int i = 0; i < quantes; i++) {
-            re += "Prestatgeria "+ i +" hi ubiquem: \n"
+            re += "Llibreria.Prestatgeria "+ i +" hi ubiquem: \n"
             + prestatgeries[i].toString() +"\n";
         }
         return re;

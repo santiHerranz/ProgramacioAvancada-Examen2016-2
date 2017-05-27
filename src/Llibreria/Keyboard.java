@@ -1,16 +1,15 @@
-
-// Our version of Keyboard.java
+package Llibreria;
+// Our version of Llibreria.Keyboard.java
 // DrJava-friendly: uses Dialog Boxes (also solves focus problem)
 
-// Place Keyboard.class in same directory as your programs,
-// and DO NOT "import cs1" (or else you'll get LLC's Keyboard class)
+// Place Llibreria.Keyboard.class in same directory as your programs,
+// and DO NOT "import cs1" (or else you'll get LLC's Llibreria.Keyboard class)
 
 // Use:
-// Keyboard.readInt()    or  Keyboard.readInt(prompt)
-// Keyboard.readDouble() or  Keyboard.readDouble(prompt)
-// Keyboard.readString() or  Keyboard.readString(prompt)
+// Llibreria.Keyboard.readInt()    or  Llibreria.Keyboard.readInt(prompt)
+// Llibreria.Keyboard.readDouble() or  Llibreria.Keyboard.readDouble(prompt)
+// Llibreria.Keyboard.readString() or  Llibreria.Keyboard.readString(prompt)
 
-import java.io.*;
 import javax.swing.*;
 import java.awt.*;
 

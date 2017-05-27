@@ -1,3 +1,5 @@
+package Llibreria;
+
 public class Tematica implements Comparable {
     private String nom;
     private int numLlibres;

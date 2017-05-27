@@ -1,3 +1,5 @@
+package decode;
+
 import java.util.Arrays;
 
 /**
@@ -8,7 +10,8 @@ public class Descodificador {
     private static String codigo = "903900439651484";
 
 
-    private char lletres[]={'H','A','R','Y','P','O','T','E','S','L'};
+    private char lletres[]={'H','A','R','Y','P','O','T','E','L','S'};
+    //private char lletres[]={'L','R','Y','S','O','A','H','P','T','E'}; // minim iteracions posibles
     //diferents caràcters a codificar. Domini decisions. Es pot omplenar al constructor
     private int missatge[];
     //missatge a descodificar
@@ -23,14 +26,18 @@ public class Descodificador {
     private static int contador;
 
 
-    public Descodificador(int[] missatge){
-
+    public Descodificador(){
         //Exercici 2
-        this.missatge=missatge;
         solucio=new char[10];
         //índex es correspon amb el codi: solucio[0] hi ha el caràcter del dígit 0
         marcats=new boolean[10];
         for(int i=0; i<10; i++)marcats[i]=false;
+    }
+
+    public Descodificador(int[] missatge){
+        this();
+        //Exercici 2
+        this.missatge=missatge;
     }
 
     public static void main(String[] args) {
@@ -49,14 +56,12 @@ public class Descodificador {
         //k és correspon amb el digit
         int i=0; //index de la taula de caracters. Domini del problema
         boolean trobat=false;
-        while (i<10 && !trobat){ //amplada caracters
+        while (i<lletres.length && !trobat){ //amplada caracters 10
             if (!marcats[i]) {
-                if (k==9) contador++;
-
                 if (acceptable(lletres[i], k)){
-                    //acceptable. Assignar al digit k el caràcter lletres[i]
                     marcats[i]=true;
-                    solucio[k]=lletres[i];
+                    //acceptable. Assignar al digit k de la solució <- la lletra i
+                    solucio[k] = lletres[i];
                     if (k==9 && sumaOK()){
                         trobat=true;
                     }
@@ -71,35 +76,34 @@ public class Descodificador {
         return trobat;
     }
 
-    private boolean acceptable(char car, int valor){
+    private boolean acceptable(char car, int nivell){
         // restricció: els numeros que apareixen en la suma no poden començar per "0"
         // els caràcters H, P, T no poden ser el 0
-        //return ((valor==0 && car!='H' && car!='P' && car!='T') || (valor!=0));
-        return true;
+        return ((nivell==0 && car!='H' && car!='P' && car!='T') || (nivell!=0));
+        //return true;
     }
 
-    private boolean sumaOK(){
+    public boolean sumaOK(){
+        contador++; // comptador d'iteracions
         int h=descodificar(operand1);
         int p=descodificar(operand2);
         int t=descodificar(suma);
-        if  (h+p==t)
-            System.out.println("OK");
         return h+p==t;
     }
-    private int descodificar(char m[]){
+    public int descodificar(char m[]){
         // El valor total del conjunt de lletres
         // serà la suma dels valors de cada lletra
         // tenint en compte la posició
         int i=0, valorLletra;
         int valorTotal=0;
         while (i<m.length){
-            valorLletra= quinValorTelaLletra(m[i]);
+            valorLletra= quinValorTeLaLletra(m[i]);
             valorTotal= 10*valorTotal + valorLletra;
             i++;
         }
         return valorTotal;
     }
-    private int quinValorTelaLletra(char m){
+    public int quinValorTeLaLletra(char m){
         //sabem segur hi és
         //El valor de la lletra és la posició que ocupa a la solució
         int i=0;
